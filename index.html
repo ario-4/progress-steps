@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+            height: 100vh;
+            display: grid;
+            place-items: center;
+
+        }
+        .contaner{
+            text-align: center;
+            
+        }
+        .contaner .progress-step{
+            display: flex;
+            gap: 100px;
+            position:relative;
+
+        }
+        .contaner .progress-step::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background-color: lightgray;
+            top:calc(50% - 2px) ;
+            z-index: -1;
+            transition: all .5s;
+        }
+        .progress{
+            position: absolute;
+            width: 0;
+            height: 4px;
+            background-color: rgb(62, 138, 244);
+            top:calc(50% - 2px) ;
+            z-index: -1;
+            transition: all .5s;
+        }
+        input{
+            background-color: rgb(62, 138, 244);
+            color: aliceblue;
+            border: none;
+            border-radius: 6px;
+            width: 100px;
+            height: 30px;
+            margin: 50px 10px ;
+            cursor: pointer;
+ 
+        }
+        input:active{
+            transform: scale(.98);
+        }
+        input:disabled{
+            background-color: lightgray;
+            cursor: default;
+        }
+        .step{
+            background-color: rgb(255, 255, 255);
+            width: 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            border: 3px solid lightgray;  
+            transition-delay: .4s; 
+        }
+        .step.active{
+            background-color:rgb(62, 138, 244) ;
+            border-color:rgb(62, 138, 244) ;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="contaner">
+        <div class="progress-step">
+            <div class="step active" >1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+            <div class="step">4</div>
+            <div class="progress"></div>
+        </div>
+        <input type="button" id="prev" value="prev" disabled>
+        <input type="button" id="next"value="next">
+    </div>
+    <script src="js.js"></script>
+</body>
+</html>
